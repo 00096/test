@@ -10,19 +10,28 @@
                     document.cookie = cookies;
             }
 		    
-            function setCookie(cName, cValue, cDay){
-                    var expire = new Date();
-                    expire.setDate(expire.getDate() + cDay);
-                    cookies = cName + '=' + escape(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
-                    if(typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
-                    document.cookie = cookies;
+            function getCookie(cName) {
+                cName = cName + '=';
+                var cookieData = document.cookie;
+                var start = cookieData.indexOf(cName);
+                var cValue = '';
+                if(start != -1){
+                start += cName.length;
+                var end = cookieData.indexOf(';', start);
+                if(end == -1)end = cookieData.length;
+                cValue = cookieData.substring(start, end);
+                }
+                return unescape(cValue);
             }
             
 		    //출처:https://webfoxrain.tistory.com/2
 	    setCookie('notice', '새로운 공지 사항이 올라왔습니다', 1)
-            function cookieidentify(){
-		    alert(document.cookie)
-	    }
+	    var cook = getCoookies('notice');
+	    document.cookie = cook;
+	    function cookieIdentify() {
+            alert(document.cookie);
+            }
+		
         </script>
         <title>자바 스크립트 연습</title>
     </head>
