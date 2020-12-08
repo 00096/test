@@ -2,11 +2,23 @@
 <html>
     <head>
         <script>
-            var x = 2;
-            var y = 3;
-            if (x < y){
-                document.write("흠");
+            function setCookie(cName, cValue, cDay){
+                    var expire = new Date();
+                    expire.setDate(expire.getDate() + cDay);
+                    cookies = cName + '=' + escape(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
+                    if(typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
+                    document.cookie = cookies;
             }
+		    
+		    function setCookie(cName, cValue, cDay){
+                    var expire = new Date();
+                    expire.setDate(expire.getDate() + cDay);
+                    cookies = cName + '=' + escape(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
+                    if(typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
+                    document.cookie = cookies;
+            }
+            
+		    //출처:https://webfoxrain.tistory.com/2
         </script>
         <title>자바 스크립트 연습</title>
     </head>
