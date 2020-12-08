@@ -10,7 +10,7 @@
                     document.cookie = cookies;
             }
 		    
-		    function setCookie(cName, cValue, cDay){
+            function setCookie(cName, cValue, cDay){
                     var expire = new Date();
                     expire.setDate(expire.getDate() + cDay);
                     cookies = cName + '=' + escape(cValue) + '; path=/ '; // 한글 깨짐을 막기위해 escape(cValue)를 합니다.
@@ -19,8 +19,13 @@
             }
             
 		    //출처:https://webfoxrain.tistory.com/2
+	    setCookie('notice', '새로운 공지 사항이 올라왔습니다', 1)
+            function cookieidentify(){
+		    alert(document.cookie)
+	    }
         </script>
         <title>자바 스크립트 연습</title>
     </head>
     <body>
+	<input type="button" onClick="cookieIdentify();" value="쿠키확인"/>
 </html>
