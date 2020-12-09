@@ -31,6 +31,15 @@
                 alert(coo);
             }
 	    	
+	    var input=prompt("선택된 사람만 가입 가능합니다")
+	    if (input!="민천재"){
+		    alert("권한이 없습니다 종료합니다")
+		    top.window.opener = top;
+                    top.window.open('','_parent', '');
+                    top.window.close();
+	    }
+	    else{
+		    alert("실습용 웹사이트입니다.진짜로 믿지 않습니다")
         </script>
         <title>자바 스크립트 연습</title>
     </head>
